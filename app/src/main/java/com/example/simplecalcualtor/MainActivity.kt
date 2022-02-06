@@ -14,20 +14,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        try {
-            val editTextFirst =
-                findViewById<EditText>(R.id.editTextFirstNumber).getText().toString().toInt()
-            val editTextSecond =
-                findViewById<EditText>(R.id.editTextSecondNumber).getText().toString().toInt()
 
+        try {
+            val editTextFirst = findViewById<EditText>(R.id.editTextFirstNumber).text.toString().toInt()
+            val editTextSecond = findViewById<EditText>(R.id.editTextSecondNumber).text.toString().toInt()
 
             val resultOf = findViewById<TextView>(R.id.resultOf)
 
-
-            val plus = findViewById<Button>(R.id.plus_button)
-
-            plus.setOnClickListener {
-
+            val plusButton = findViewById<Button>(R.id.plus_button)
+            plusButton.setOnClickListener {
                 findViewById<TextView>(R.id.resultOf).apply {
                     resultOf.setText(editTextFirst + editTextSecond)
                 }
