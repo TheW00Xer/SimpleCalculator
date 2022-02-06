@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         try {
             val editTextFirst = findViewById<EditText>(R.id.editTextFirstNumber).text.toString().toInt()
             val editTextSecond = findViewById<EditText>(R.id.editTextSecondNumber).text.toString().toInt()
