@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import java.lang.NumberFormatException
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,17 +14,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val editTextFirst = findViewById<EditText>(R.id.editTextFirstNumber).toString().toInt()
-        val editTextSecond = findViewById<EditText>(R.id.editTextSecondNumber).toString().toInt()
-        val resultOf = findViewById<TextView>(R.id.resultOf)
+        try {
+            val editTextFirst =
+                findViewById<EditText>(R.id.editTextFirstNumber).getText().toString().toInt()
+            val editTextSecond =
+                findViewById<EditText>(R.id.editTextSecondNumber).getText().toString().toInt()
 
-        val plus = findViewById<Button>(R.id.plus_button)
 
-        plus.setOnClickListener {
+            val resultOf = findViewById<TextView>(R.id.resultOf)
 
-            findViewById<TextView>(R.id.resultOf).apply {
-                resultOf.setText(editTextFirst + editTextSecond)
+
+            val plus = findViewById<Button>(R.id.plus_button)
+
+            plus.setOnClickListener {
+
+                findViewById<TextView>(R.id.resultOf).apply {
+                    resultOf.setText(editTextFirst + editTextSecond)
+                }
             }
+        } catch (e: NumberFormatException) {
+            println("wrong input format")
         }
     }
 }
